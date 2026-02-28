@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automaton by DeepTree</title>
-  <meta name="description" content="Automaton is autonomous operations software from DeepTree. Perceive, Think, Act, Observe, Adapt.">
+  <title>Automaton by DeepTree — Durable AI Policy Execution</title>
+  <meta name="description" content="Automate high-stakes operations with versioned policies, audit trails, and guaranteed recovery paths. Enterprise AI operations by DeepTree.">
   <style>
     :root {
       --bg: #f5f7fb;
@@ -128,6 +128,13 @@
       font-size: 0.95rem;
     }
 
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -142,15 +149,9 @@
       background: color-mix(in srgb, var(--card) 88%, transparent);
     }
 
-    .placeholder {
-      margin-top: 0.6rem;
-      border: 1px dashed var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      background: color-mix(in srgb, var(--card) 92%, transparent);
+    .card strong {
+      display: block;
+      margin-bottom: 0.3rem;
     }
 
     .kicker {
@@ -181,108 +182,72 @@
 <body>
   <main class="wrap">
     <span class="eyebrow">Enterprise AI operations · by DeepTree</span>
-    <h1>Automaton: AI-Powered Operations, Built for Trust</h1>
-    <p class="subhead">Standardize repetitive operational decisions across your stack with policy-driven execution, human approvals, and audit-ready controls.</p>
+    <h1>Durable AI policy execution for enterprise.</h1>
+    <p class="subhead">Automate high-stakes operations with versioned policies, audit trails, and guaranteed recovery paths.</p>
 
     <div class="cta">
-      <a class="btn primary" href="mailto:team@deeptree.com?subject=Automaton%20Enterprise%20Demo">Book enterprise demo</a>
-      <a class="btn" href="mailto:team@deeptree.com?subject=Automaton%20Solutions%20Engineering">Talk to solutions engineering</a>
-      <a class="btn" href="#security">View security overview</a>
+      <a class="btn primary" href="#signup">Become a Design Partner</a>
+      <a class="btn" href="mailto:team@deeptree.com?subject=Automaton%20Policy%20Replay%20Demo">See a Policy Replay Demo</a>
     </div>
 
+    <section id="signup" class="section">
+      <iframe data-tally-src="https://tally.so/embed/1ArJMb?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="300" frameborder="0" marginheight="0" marginwidth="0" title="Automaton Design Partner"></iframe>
+    </section>
+    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s)}</script>
+
+    <!-- Proof pillars -->
     <section class="section">
-      <h2>Why enterprise teams choose Automaton</h2>
-      <ul>
-        <li><strong>Deterministic-first policy engine:</strong> explicit rules for repeatable, predictable operations.</li>
-        <li><strong>Human control where it matters:</strong> approval gates for risky or high-impact actions.</li>
-        <li><strong>Replayable decisions:</strong> full timeline of what happened, why, and with what inputs.</li>
-        <li><strong>AI governance controls:</strong> BYOM support with model/provider restriction options.</li>
-      </ul>
+      <h2>Why Automaton</h2>
+      <div class="grid-3">
+        <div class="card">
+          <strong>Durable execution</strong>
+          <span class="muted">Workflows survive crashes, deploys, and infrastructure failures. Every operation resumes exactly where it left off with guaranteed recovery.</span>
+        </div>
+        <div class="card">
+          <strong>Policy governance</strong>
+          <span class="muted">Version-controlled policies define what runs, when, and under what constraints. Changes are reviewed, approved, and tracked like code.</span>
+        </div>
+        <div class="card">
+          <strong>Full observability</strong>
+          <span class="muted">Every decision, input, and outcome is recorded. Replay any execution step-by-step. Audit trails are immutable and query-ready.</span>
+        </div>
+      </div>
     </section>
 
+    <!-- How it works -->
     <section id="how" class="section">
-      <h2>How Automaton works</h2>
+      <h2>How it works</h2>
       <div class="steps">
-        <div class="step"><strong>Perceive</strong><br><span class="muted">Collect context from systems like Linear, GitHub, Datadog, and Slack.</span></div>
-        <div class="step"><strong>Think</strong><br><span class="muted">Apply deterministic policies; use AI for ambiguous edge cases.</span></div>
-        <div class="step"><strong>Act</strong><br><span class="muted">Execute safe, policy-scoped actions with guardrails and approvals.</span></div>
-        <div class="step"><strong>Observe</strong><br><span class="muted">Log outcomes, notify stakeholders, and expose clear metrics.</span></div>
-        <div class="step"><strong>Adapt</strong><br><span class="muted">Incorporate feedback and improve policy behavior over time.</span></div>
+        <div class="step"><strong>Define</strong><br><span class="muted">Author policies as versioned, reviewable artifacts.</span></div>
+        <div class="step"><strong>Connect</strong><br><span class="muted">Integrate with your existing systems and data sources.</span></div>
+        <div class="step"><strong>Execute</strong><br><span class="muted">Run operations with approval gates and policy guardrails.</span></div>
+        <div class="step"><strong>Observe</strong><br><span class="muted">Monitor outcomes with full decision traces and metrics.</span></div>
+        <div class="step"><strong>Recover</strong><br><span class="muted">Replay, roll back, or resume any operation at any point.</span></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Common enterprise use cases</h2>
-      <div class="grid-2">
-        <div class="card">
-          <p class="kicker">Linear hygiene and drift control</p>
-          <p class="muted">Trigger: cycle rollover → Decision: stale issue detected → Action: move to Icebox + notify owner → Outcome: cleaner active backlog.</p>
-        </div>
-        <div class="card">
-          <p class="kicker">Release governance</p>
-          <p class="muted">Trigger: deploy candidate → Decision: checks pass/fail → Action: generate notes, enforce gates, request approval → Outcome: safer releases.</p>
-        </div>
-        <div class="card">
-          <p class="kicker">Incident escalation</p>
-          <p class="muted">Trigger: SLO breach alert → Decision: classify severity → Action: execute runbook + page owner → Outcome: faster response with context.</p>
-        </div>
-        <div class="card">
-          <p class="kicker">Change and cost guardrails</p>
-          <p class="muted">Trigger: risky config delta → Decision: over threshold → Action: block/rollback + escalate → Outcome: reduced blast radius.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Product walkthrough</h2>
-      <div class="grid-2">
-        <div class="card">
-          <strong>Policy authoring</strong>
-          <div class="placeholder">Screenshot placeholder · Policy editor (draft, validate, publish)</div>
-        </div>
-        <div class="card">
-          <strong>Workflow replay</strong>
-          <div class="placeholder">Screenshot placeholder · Step-by-step timeline and decision trace</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Integrations</h2>
-      <p class="muted">Automaton connects to the systems your operations team already uses.</p>
-      <div class="grid-2">
-        <div class="card"><strong>Linear</strong><br><span class="muted">Issue context, state transitions, and policy-driven workflow hygiene.</span></div>
-        <div class="card"><strong>Slack</strong><br><span class="muted">Team notifications, escalation messages, and direct stakeholder updates.</span></div>
-      </div>
-    </section>
-
+    <!-- Enterprise security -->
     <section id="security" class="section">
-      <h2>Enterprise security and compliance</h2>
-      <p class="muted">Leverage AI to speed up operations safely and securely with defense-in-depth architecture and governance controls.</p>
-      <ul>
-        <li><strong>Defense in depth:</strong> layered controls across identity, policy runtime, integrations, and audit.</li>
-        <li><strong>Compliance-ready foundations:</strong> comprehensive logs, traceability, and reviewable policy/version history.</li>
-        <li><strong>SSO + SCIM:</strong> centralized access plus automated provisioning and deprovisioning.</li>
-        <li><strong>BYOM:</strong> use your approved model and provider strategy, with policy-level restrictions.</li>
-        <li><strong>Role-based controls:</strong> separate author, approver, and operator responsibilities.</li>
-        <li><strong>Dry-run + replay:</strong> validate before live execution and reconstruct every decision chain.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Deployment options</h2>
+      <h2>Enterprise-grade controls</h2>
       <div class="grid-2">
-        <div class="card"><strong>Managed cloud</strong><br><span class="muted">Fastest path to value for most teams.</span></div>
-        <div class="card"><strong>Private/VPC deployment</strong><br><span class="muted">For stricter network, data, and procurement requirements.</span></div>
+        <div class="card">
+          <strong>Security and compliance</strong>
+          <span class="muted">SSO + SCIM, role-based access, defense-in-depth architecture, and compliance-ready audit logs.</span>
+        </div>
+        <div class="card">
+          <strong>Deployment flexibility</strong>
+          <span class="muted">Managed cloud or private VPC. Your data stays where your policies require.</span>
+        </div>
       </div>
     </section>
 
+    <!-- Bottom CTA -->
     <section class="section">
-      <h2>Start small, scale safely</h2>
-      <p class="muted">Pilot one workflow in days, prove value quickly, then expand policy-by-policy across your operation.</p>
+      <h2>Ready to see it in action?</h2>
+      <p class="muted">Talk to our team about running Automaton on your critical operations.</p>
       <div class="cta">
-        <a class="btn primary" href="mailto:team@deeptree.com?subject=Automaton%20Enterprise%20Pilot">Start an enterprise pilot</a>
-        <a class="btn" href="mailto:team@deeptree.com?subject=Automaton%20Security%20Overview">Request security overview</a>
+        <a class="btn primary" href="mailto:team@deeptree.com?subject=Automaton%20Design%20Partner">Become a Design Partner</a>
+        <a class="btn" href="mailto:team@deeptree.com?subject=Automaton%20Policy%20Replay%20Demo">See a Policy Replay Demo</a>
       </div>
     </section>
 
