@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automaton — Durable AI Policy Execution</title>
-  <meta name="description" content="Automate high-stakes operations with versioned policies, audit trails, and guaranteed recovery paths.">
+  <title>Automaton — Policy Execution for High-Stakes Operations</title>
+  <meta name="description" content="Safely execute AI-initiated actions with deterministic approvals, audit trails, and recovery. Policy execution for high-stakes operations.">
   <style>
     :root {
       --bg: #f5f7fb;
@@ -64,7 +64,7 @@
       margin: 0;
       font-size: clamp(1.03rem, 2.1vw, 1.2rem);
       color: var(--muted);
-      max-width: 760px;
+      max-width: 860px;
     }
 
     .cta {
@@ -165,6 +165,16 @@
 
     .muted { color: var(--muted); }
 
+    .steps-list {
+      margin: 0.8rem 0 0;
+      padding-left: 1.4rem;
+      color: var(--muted);
+    }
+
+    .steps-list li {
+      padding: 0.25rem 0;
+    }
+
     footer {
       margin-top: 2.8rem;
       color: var(--muted);
@@ -172,6 +182,16 @@
     }
 
     a { color: var(--accent); }
+
+    #dot-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
   </style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-dttL_Dre9m-KFNp03ycUX.js"></script>
@@ -181,16 +201,32 @@
   </script>
 </head>
 <body>
+  <canvas id="dot-grid"></canvas>
   <main class="wrap">
     <span class="eyebrow">Automaton</span>
-    <h1>Durable AI policy execution for enterprise.</h1>
-    <p class="subhead">Automate high-stakes operations with versioned policies, audit trails, and guaranteed recovery paths.</p>
+    <h1>Policy execution for high-stakes operations.</h1>
+    <p class="subhead">Safely execute AI-initiated actions with deterministic approvals, audit trails, and recovery.</p>
 
     <div class="cta">
-      <button class="btn primary" data-tally-open="1ArJMb" data-tally-layout="modal" data-tally-width="700" data-tally-auto-close="3000">Become a Design Partner</button>
-      <a class="btn" href="mailto:team@deeptree.com?subject=Automaton%20Policy%20Replay%20Demo">See a Policy Replay Demo</a>
+      <button class="btn primary" data-tally-open="1ArJMb" data-tally-layout="modal" data-tally-width="700" data-tally-auto-close="3000">Request Early Access</button>
+      <a class="btn" href="mailto:team@deeptree.com?subject=Automaton%20Example%20Workflow">See Example Workflow</a>
     </div>
     <script async src="https://tally.so/widgets/embed.js"></script>
+
+    <!-- Example workflow -->
+    <section class="section">
+      <h2>AI-Proposed Refund Under Policy Control</h2>
+      <ol class="steps-list">
+        <li>AI proposes refund of $6,200</li>
+        <li><strong style="color: var(--text)">Policy v3.2</strong> requires VP approval within 48 hours</li>
+        <li>Manager notified &rarr; approves</li>
+        <li>VP notified &rarr; approves</li>
+        <li>Refund issued</li>
+        <li>All inputs, decisions, and policy version logged</li>
+        <li>If approval times out, escalation policy activates automatically</li>
+        <li><strong style="color: var(--text)">Execution replayable</strong> at any time</li>
+      </ol>
+    </section>
 
     <!-- Proof pillars -->
     <section class="section">
@@ -198,15 +234,15 @@
       <div class="grid-3">
         <div class="card">
           <strong>Durable execution</strong>
-          <span class="muted">Workflows survive crashes, deploys, and infrastructure failures. Every operation resumes exactly where it left off with guaranteed recovery.</span>
+          <span class="muted">Workflows survive crashes, deploys, and outages. No lost approvals. No stuck operations.</span>
         </div>
         <div class="card">
           <strong>Policy governance</strong>
-          <span class="muted">Version-controlled policies define what runs, when, and under what constraints. Changes are reviewed, approved, and tracked like code.</span>
+          <span class="muted">Policies are versioned and enforced automatically. No silent violations.</span>
         </div>
         <div class="card">
           <strong>Full observability</strong>
-          <span class="muted">Every decision, input, and outcome is recorded. Replay any execution step-by-step. Audit trails are immutable and query-ready.</span>
+          <span class="muted">Every decision and action is logged and replayable. Audit-ready by default.</span>
         </div>
       </div>
     </section>
@@ -228,5 +264,61 @@
 
 
   </main>
+  <script>
+    (function() {
+      var canvas = document.getElementById('dot-grid');
+      var ctx = canvas.getContext('2d');
+      var dpr = window.devicePixelRatio || 1;
+      var spacing = 32;
+      var radius = 2;
+      var parallax = 0.3;
+      var mouseX = 0, mouseY = 0;
+      var targetX = 0, targetY = 0;
+
+      function getDotColor() {
+        var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return isDark ? 'rgba(175, 187, 214, 0.3)' : 'rgba(90, 100, 117, 0.25)';
+      }
+
+      function resize() {
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function draw() {
+        targetX += (mouseX - targetX) * 0.08;
+        targetY += (mouseY - targetY) * 0.08;
+        var offsetX = targetX * parallax;
+        var offsetY = targetY * parallax;
+
+        ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+        ctx.fillStyle = getDotColor();
+
+        var startX = (offsetX % spacing) - spacing;
+        var startY = (offsetY % spacing) - spacing;
+        var w = canvas.width / dpr + spacing;
+        var h = canvas.height / dpr + spacing;
+
+        for (var x = startX; x < w; x += spacing) {
+          for (var y = startY; y < h; y += spacing) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize);
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX - window.innerWidth / 2;
+        mouseY = e.clientY - window.innerHeight / 2;
+      });
+
+      resize();
+      draw();
+    })();
+  </script>
 </body>
 </html>
